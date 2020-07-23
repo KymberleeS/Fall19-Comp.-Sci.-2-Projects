@@ -1,0 +1,272 @@
+import java.util.Scanner;
+import java.lang.Math;
+
+public class MyCalendar
+{
+	public static void main(String[] args) 
+	{
+		//variable initialization
+			double day;
+			//double spaces;
+			double dayOne = 0;
+			int year;
+			int numOfDays;
+			int month;
+			int spaces;
+			int i = 0;
+			String monthName;
+			
+	
+		//statements
+			Scanner input = new Scanner (System.in);
+			
+			do
+			{
+				System.out.printf("Enter a year from 1780 to 2040: ");
+				year = input.nextInt();
+				if(year < 1780 || year > 2040)
+				{
+					System.out.printf("Year out of range. Please enter a valid year.\n");
+				}
+			}
+			while(year < 1780 || year > 2040);
+			
+			day = (28 + (year % 100) + (Math.floor(((year % 100) - 1) / (double)(4))) + (Math.floor((year) / (double)(400))) - (2 * (Math.floor((year) / (double)(100))))) % (double)7;
+			
+			if(day < 0)
+			{
+				day += 7;
+			}
+			
+			System.out.printf("%.1f\n", day);
+			
+			for(month = 1; month <= 12; month++)	
+			{
+				numOfDays = 0;
+				monthName = " ";
+				switch(month)
+				{
+					case 1: monthName = "January";
+							numOfDays = 31;
+						break;
+						
+					case 2: monthName = "February";
+							if(((year % 4 == 0 ) && (year % 100 != 0)) || (year % 400 == 0))
+								numOfDays = 29;
+							else
+								numOfDays = 28;
+						break;
+						
+					case 3: monthName = "March";
+							numOfDays = 31;
+						break;
+						
+					case 4: monthName = "April";
+							numOfDays = 30;
+						break;
+					
+					case 5: monthName = "May";
+							numOfDays = 31;
+						break;
+						
+					case 6: monthName = "June";
+							numOfDays = 30;
+						break;
+						
+					case 7: monthName = "July";
+							numOfDays = 31;
+						break;
+						
+					case 8: monthName = "August";
+							numOfDays = 31;
+						break;
+						
+					case 9: monthName = "September";
+							numOfDays = 30;
+						break;
+						
+					case 10: monthName = "October";
+							 numOfDays = 31;
+						break;
+						
+					case 11: monthName = "November";
+							 numOfDays = 30;
+						break;
+						
+					case 12: monthName = "December";
+							 numOfDays = 31;
+						break;
+				}
+				System.out.println(" ---------------------------");
+				System.out.printf(" %14s %4d\n", monthName, year);
+				System.out.printf(" Sun Mon Tue Wed Thu Fri Sat\n");
+					
+					if(day == 0)
+					{
+						for(spaces = 0; spaces <= 0; spaces++)
+						{
+							System.out.printf("%s","");
+						}
+					}
+					else if(day == 1)
+					{
+						for(spaces = 0; spaces <= day; spaces++)
+						{
+							System.out.printf("%s"," ");
+						}
+					}
+					else if(day == 2)
+					{
+						for(spaces = 0; spaces <= 1; spaces++)
+						{
+							System.out.printf("%4s"," ");
+						}
+					}
+					else if(day == 3)
+					{
+						for(spaces = 0; spaces <= day; spaces++)
+						{
+							System.out.printf("%s", " ");
+						}
+					}
+					else if(day == 4)
+					{
+						for(spaces = 0; spaces <= 9; spaces++)
+						{
+							System.out.printf("%s", " ");
+						}
+					}
+					else if(day == 5)
+					{
+						for(spaces = 0; spaces <= 12; spaces++)
+						{
+							System.out.printf("%s", " ");
+						}
+					}
+					else if(day == 6)
+					{
+						for(spaces = 0; spaces <= day; spaces++)
+						{
+							System.out.printf("%s", " ");
+						}
+					}
+				
+				if(month == 1) {
+					dayOne = day;
+				}
+				else if(month == 2) {
+					dayOne = day + 3;
+				}
+				else if(month == 3) {
+					dayOne = day + 3;
+				}
+				else if(month == 4) {
+					dayOne = day + 6;
+				}
+				else if(month == 5) {
+					dayOne = day + 8;
+				}	
+				else if(month == 6) {
+					dayOne = day + 11;
+				}	
+				else if(month == 7) {
+					dayOne = day + 13;
+				}
+				else if(month == 8) {
+					dayOne = day + 16;
+				}	
+				else if(month == 9) {
+					dayOne = day + 19;
+				}				
+				else if(month == 10) {
+					dayOne = day + 21;
+				}							
+				else if(month == 11) {
+					dayOne = day + 24;
+				}										
+				else if(month == 12) {
+					dayOne = day + 26;
+				}	
+																						
+				if(((year % 4 == 0 ) && (year % 100 != 0)) || (year % 400 == 0))
+					if(month == 1) {
+						dayOne = day;
+					}
+					else if(month == 2) {
+						dayOne = day + 3;
+					}
+					else if(month == 3) {
+						dayOne = day + 4;
+					}
+					else if(month == 4) {
+						dayOne = day + 7;
+					}
+					else if(month == 5) {
+						dayOne = day + 9;
+					}	
+					else if(month == 6) {
+						dayOne = day + 12;
+					}	
+					else if(month == 7) {
+						dayOne = day + 14;
+					}
+					else if(month == 8) {
+						dayOne = day + 17;
+					}	
+					else if(month == 9) {
+						dayOne = day + 20;
+					}				
+					else if(month == 10) {
+						dayOne = day + 22;
+					}							
+					else if(month == 11) {
+						dayOne = day + 25;
+					}										
+					else if(month == 12) {
+						dayOne = day + 27;
+					}	
+				
+			/*	if((dayOne % 7) >= 0)
+				{
+					if((dayOne % 7) == 0) {
+								;
+					}
+					else if((dayOne % 7) == 1) {
+						for(spaces = 0; spaces <= dayOne; spaces++)
+						{
+							System.out.printf("%s","");
+						}
+						//System.out.print("\t ");
+					}
+					else if((dayOne % 7) == 2) {
+						System.out.print("\t\t  ");
+					}
+					else if((dayOne % 7) == 3) {
+						System.out.print("\t\t\t   ");
+					}
+					else if((dayOne % 7) == 4) {
+						System.out.print("\t\t\t\t\t");
+					}
+					else if((dayOne % 7) == 5) {
+						System.out.print("\t\t\t\t\t\t ");
+					}
+					else if((dayOne % 7) == 6) {
+						System.out.print("\t\t\t\t\t\t  ");
+					}
+				} */
+				
+				for(i = 1; i <= numOfDays; i++) 
+				{
+					if(i < 10)
+						System.out.print("   " + i);
+					else
+						System.out.print("  " + i);
+					
+					if((i + dayOne) % 7 == 0)
+						System.out.println();
+				}
+				System.out.println();
+			}		
+		input.close();
+	}
+}
